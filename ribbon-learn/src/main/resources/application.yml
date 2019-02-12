@@ -1,0 +1,15 @@
+server:
+  port: 8010 #配置端口
+
+spring:
+  application:
+    name: ribbon-learn #应用名称
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true #是否打开健康监测，为true需要加入actuator依赖
+    service-url:
+      defaultZone: http://localhost:8081/eureka/ #服务注册中心地址
+  instance:
+    prefer-ip-address: true #自动获取第一个非回环IP地址

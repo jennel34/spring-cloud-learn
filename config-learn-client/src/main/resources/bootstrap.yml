@@ -1,0 +1,21 @@
+#配置eureka 的注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/
+
+#配置服务名称
+#访问的配置文件名称为
+#{application.name}/{profile}/{label}
+#${spring.application.name}-${spring.cloud.config.profile}-${spring.cloud.config.label}
+spring:
+  application:
+    name: config-client #服务名称
+  cloud:
+    config:
+      uri: http://localhost:9020/ #配置服务的地址 bootstrap.yml
+      enabled: true #开启配置
+      profile: prod  #版本
+      label: ""     #git配置的分支信息，master类似的
+
+

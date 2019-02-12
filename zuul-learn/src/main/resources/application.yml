@@ -1,0 +1,23 @@
+server:
+  port: 8091  #端口号
+
+spring:
+  application:
+    name: zuul-learn  #服务注册中心测试名
+
+zuul:
+  routes:
+    api-a:
+      path: /eurekaLearn/**
+      serviceId: eureka-learn-client
+    ribbon-learn:
+      path: /ribbonLearn/**
+      serviceId: ribbon-learn #添加ribbon的路由
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka/  #服务注册中心
+#  instance:
+#    instance-id:  ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+#    prefer-ip-address: true
